@@ -1,8 +1,3 @@
-<script setup>
-import Logo from '@/layouts/full/logo/Logo.vue';
-import LoginForm from '@/components/auth/LoginForm.vue';
-
-</script>
 <template>
     <div class="authentication">
         <v-container fluid class="pa-3">
@@ -14,13 +9,8 @@ import LoginForm from '@/components/auth/LoginForm.vue';
                                 <Logo />
                             </div>
 
-                            <LoginForm />
-                            <h6 class="text-h6 text-muted font-weight-medium d-flex justify-center align-center mt-3">
-                                Novo por aqui?
-                                <RouterLink :to="{ name: 'register'}"
-                                    class="text-primary text-decoration-none text-body-1 opacity-1 font-weight-medium pl-2">
-                                    Crie uma conta</RouterLink>
-                            </h6>
+                            <ForgotPassword />
+
                         </v-card-item>
                     </v-card>
                 </v-col>
@@ -28,3 +18,9 @@ import LoginForm from '@/components/auth/LoginForm.vue';
         </v-container>
     </div>
 </template>
+
+<script setup>
+import ForgotPassword from '@/components/auth/ForgotPassword.vue';
+import Logo from '@/layouts/full/logo/Logo.vue';
+
+</script>

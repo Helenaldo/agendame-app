@@ -27,7 +27,7 @@
             <div class="d-flex flex-wrap align-center ml-n2">
 
                 <div class="ml-sm-auto">
-                    <RouterLink to="/"
+                    <RouterLink :to="{ name: 'forgotPassword' }"
                         class="text-primary text-decoration-none text-body-1 opacity-1 font-weight-medium">Esqueceu a senha?
                         </RouterLink>
                 </div>
@@ -78,8 +78,8 @@ function login(values) {
     .then(() => {
       router.push({name:'dashboard'})
     })
-    .catch(() => {
-      feedbackMessage.value = 'Seu e-mail ou senha estão incorretos!'
+    .catch((e) => {
+      feedbackMessage.value = e.message
     })
 }
 

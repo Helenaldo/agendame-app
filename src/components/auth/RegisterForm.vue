@@ -78,8 +78,8 @@ const feedbackMessage = ref();
 const submit = handleSubmit(async(values) => {
   const authStore = useAuthStore()
   await authStore.register(values.first_name, values.email, values.password)
-  .catch(() => {
-    feedbackMessage.value = 'Já existe usuário com este e-mail.'
+  .catch((e) => {
+    feedbackMessage.value = e.message
   })
 })
 

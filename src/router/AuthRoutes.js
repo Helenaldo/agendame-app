@@ -1,4 +1,4 @@
-import { redirectIfAuthenticated } from '@/router/guard';
+import { redirectIfAuthenticated, checkIfTokenExists } from '@/router/guard';
 
 export default [
   {
@@ -18,6 +18,20 @@ export default [
     ]
   },
   {
+    path: '/esqueci-senha',
+
+    component: () => import('@/layouts/blank/BlankLayout.vue'),
+
+    children: [
+        {
+            name: 'forgotPassword',
+            path: '',
+            component: () => import('@/views/auth/ForgotPassword.vue')
+        }
+
+    ]
+  },
+  {
     path: '/cadastrar',
     component: () => import('@/layouts/blank/BlankLayout.vue'),
     children: [
@@ -25,6 +39,19 @@ export default [
             name: 'register',
             path: '',
             component: () => import('@/views/auth/Register.vue')
+        }
+
+    ]
+  },
+  {
+    path: '/verificar-email',
+    component: () => import('@/layouts/blank/BlankLayout.vue'),
+    beforeEnter: checkIfTokenExists,
+    children: [
+        {
+            name: 'verifyEmail',
+            path: '',
+            component: () => import('@/views/auth/VerifyEmail.vue')
         }
 
     ]
